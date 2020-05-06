@@ -16,4 +16,4 @@ jobs:
         env:
           PUBLISH_DIR: build
           PUBLISH_BRANCH: master
-          GITHUB_TOKEN: e2dd1fc69e382e06782a3001382454aaaab3f177
+          GITHUB_TOKEN: ${{secrets.DEPLOY_TOKEN}}
