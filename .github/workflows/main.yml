@@ -1,0 +1,19 @@
+name: Build Website
+
+on:
+  push:
+    branches:
+      - source
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: composer install -n --prefer-dist --no-dev --no-suggest && composer dump-autoload -n --no-dev --optimize
+      - run: php index.php
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v1.1.0
+        env:
+          PUBLISH_DIR: build
+          PUBLISH_BRANCH: master
+          GITHUB_TOKEN: e2dd1fc69e382e06782a3001382454aaaab3f177
