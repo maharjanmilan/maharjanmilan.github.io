@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: composer install -n --prefer-dist --no-dev --no-suggest && composer dump-autoload -n --no-dev --optimize
-      - run: php index.php
+      - run: php draft build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v1.1.0
         env:
